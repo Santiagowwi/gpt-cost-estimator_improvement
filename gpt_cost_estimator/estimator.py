@@ -7,13 +7,15 @@ from .utils import num_tokens_from_messages
 class CostEstimator:
     MODEL_SYNONYMS = {
         "gpt-4": "gpt-4-0613",
-        "gpt-3-turbo": "gpt-3.5-turbo-0125",
+        "gpt-3-turbo": "gpt-3.5-turbo-0125","gpt-4o-2024-05-13","gpt-4o"
     }
 
     # Source: https://openai.com/pricing
     # Prices in $ per 1000 tokens
     # Last updated: 2024-01-26
     PRICES = {
+        "gpt-4o-2024-05-13": {"input": 0.005, "output": 0.015},
+        "gpt-4o": {"input": 0.005, "output": 0.015},
         "gpt-4-0613": {"input": 0.03, "output": 0.06},
         "gpt-3.5-turbo-0613": {"input": 0.0015, "output": 0.002},
         "gpt-4-0125-preview": {"input": 0.01, "output": 0.03},
