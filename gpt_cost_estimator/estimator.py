@@ -5,11 +5,6 @@ from .utils import num_tokens_from_messages
 
 
 class CostEstimator:
-    MODEL_SYNONYMS = {
-        "gpt-4": "gpt-4-0613",
-        "gpt-3-turbo": "gpt-3.5-turbo-0125","gpt-4o": "gpt-4o-2024-05-13"
-    }
-
     # Source: https://openai.com/pricing
     # Prices in $ per 1000 tokens
     # Last updated: 2024-01-26
@@ -55,7 +50,6 @@ class CostEstimator:
         def wrapper(*args, **kwargs):
             mock = kwargs.get('mock', True)
             model = kwargs.get('model', self.default_model)
-            model = self.MODEL_SYNONYMS.get(model, model)
             completion_tokens = kwargs.get('completion_tokens', 1)
 
             messages = kwargs.get("messages")
